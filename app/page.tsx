@@ -6,8 +6,8 @@ export default function Home() {
       <div className="container mx-auto px-4 py-16">
         {/* Header Section */}
         <header className="text-center mb-16">
-          <h1 className="text-5xl font-bold mb-4">Data Analyst Portfolio</h1>
-          <p className="text-xl text-gray-300">Transforming Data into Actionable Insights</p>
+          <h1 className="text-5xl font-bold mb-4">My Portfolio</h1>
+          <p className="text-xl text-gray-300">Welcome to my portfolio</p>
         </header>
 
         {/* Profile Image Frame */}
@@ -35,10 +35,8 @@ export default function Home() {
         <section className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">About Me</h2>
           <p className="text-gray-300 leading-relaxed">
-            I'm a passionate Data Analyst with expertise in extracting meaningful insights from complex datasets. 
-            Skilled in statistical analysis, data visualization, and business intelligence tools including Python, SQL, 
-            Excel, and Tableau. I specialize in turning raw data into compelling stories that drive strategic 
-            decision-making and business growth.
+            Add your description here. This is where you can tell visitors about yourself,
+            your skills, and your experience.
           </p>
         </section>
       </div>
