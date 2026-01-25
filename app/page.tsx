@@ -51,13 +51,13 @@ export default function Home() {
           <div className="flex gap-4 justify-center">
             <a 
               href="#projects" 
-              className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-medium"
+              className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 active:scale-95 transition-all duration-200 font-medium"
             >
               View My Work
             </a>
             <a 
               href="#contact" 
-              className="px-8 py-3 border-2 border-blue-600 text-blue-600 dark:text-blue-400 rounded-lg hover:bg-blue-50 dark:hover:bg-gray-800 transition font-medium"
+              className="px-8 py-3 border-2 border-blue-600 text-blue-600 dark:text-blue-400 rounded-lg hover:bg-blue-50 dark:hover:bg-gray-800 active:scale-95 transition-all duration-200 font-medium"
             >
               Get In Touch
             </a>
@@ -241,7 +241,7 @@ export default function Home() {
           <div className="flex gap-6 justify-center flex-wrap">
             <a 
               href="jererchjancuran2@gmail.com" 
-              className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-medium"
+              className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 active:scale-95 transition-all duration-200 font-medium"
             >
               Email Me
             </a>
@@ -249,7 +249,7 @@ export default function Home() {
               href="https://github.com/jjcuran-code" 
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition font-medium"
+              className="px-8 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 active:scale-95 transition-all duration-200 font-medium"
             >
               GitHub
             </a>
@@ -257,7 +257,7 @@ export default function Home() {
               href="https://www.linkedin.com/in/jerech-jan-curan-0049a23a7/" 
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition font-medium"
+              className="px-8 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 active:scale-95 transition-all duration-200 font-medium"
             >
               LinkedIn
             </a>
