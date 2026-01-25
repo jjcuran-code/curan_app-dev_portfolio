@@ -239,7 +239,7 @@ export default function Home() {
           </p>
           <div className="flex gap-6 justify-center flex-wrap">
             <a 
-              href="jererchjancuran2@gmail.com" 
+              href="mailto:jererchjancuran2@gmail.com" 
               className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 active:scale-95 transition-all duration-200 font-medium"
             >
               Email Me
