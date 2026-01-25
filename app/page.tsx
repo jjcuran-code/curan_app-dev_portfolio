@@ -51,9 +51,9 @@ export default function Home() {
   const animateStats = () => {
     const duration = 2000;
     const steps = 60;
-    const projectsTarget = 25;
-    const dataTarget = 10;
-    const insightsTarget = 50;
+    const projectsTarget = 15;
+    const dataTarget = 100;
+    const insightsTarget = 30;
 
     let currentStep = 0;
     const interval = setInterval(() => {
