@@ -5,6 +5,10 @@ import { useState, useEffect } from 'react';
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
+  const [statsVisible, setStatsVisible] = useState(false);
+  const [projectsAnalyzed, setProjectsAnalyzed] = useState(0);
+  const [dataVisualized, setDataVisualized] = useState(0);
+  const [insightsDelivered, setInsightsDelivered] = useState(0);
 
   useEffect(() => {
     // Check for saved theme preference or default to light mode
@@ -18,7 +22,56 @@ export default function Home() {
       setDarkMode(false);
       document.documentElement.classList.remove('dark');
     }
-  }, []);
+
+    // Intersection Observer for stats animation
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !statsVisible) {
+            setStatsVisible(true);
+            animateStats();
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    const statsSection = document.getElementById('stats-section');
+    if (statsSection) {
+      observer.observe(statsSection);
+    }
+
+    return () => {
+      if (statsSection) {
+        observer.unobserve(statsSection);
+      }
+    };
+  }, [statsVisible]);
+
+  const animateStats = () => {
+    const duration = 2000;
+    const steps = 60;
+    const projectsTarget = 25;
+    const dataTarget = 10;
+    const insightsTarget = 50;
+
+    let currentStep = 0;
+    const interval = setInterval(() => {
+      currentStep++;
+      const progress = currentStep / steps;
+      
+      setProjectsAnalyzed(Math.floor(projectsTarget * progress));
+      setDataVisualized(Math.floor(dataTarget * progress));
+      setInsightsDelivered(Math.floor(insightsTarget * progress));
+
+      if (currentStep >= steps) {
+        clearInterval(interval);
+        setProjectsAnalyzed(projectsTarget);
+        setDataVisualized(dataTarget);
+        setInsightsDelivered(insightsTarget);
+      }
+    }, duration / steps);
+  };
 
   const toggleDarkMode = () => {
     if (darkMode) {
@@ -163,16 +216,54 @@ export default function Home() {
           <div className="flex gap-4 justify-center">
             <a 
               href="#projects" 
-              className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 active:scale-95 transition-all duration-200 font-medium"
+              className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 hover:scale-105 active:scale-95 transition-all duration-200 font-medium shadow-lg hover:shadow-xl"
             >
               View My Work
             </a>
             <a 
               href="#contact" 
-              className="px-8 py-3 border-2 border-blue-600 text-blue-600 dark:text-blue-400 rounded-lg hover:bg-blue-50 dark:hover:bg-gray-800 active:scale-95 transition-all duration-200 font-medium"
+              className="px-8 py-3 border-2 border-blue-600 text-blue-600 dark:text-blue-400 rounded-lg hover:bg-blue-50 dark:hover:bg-gray-800 hover:scale-105 active:scale-95 transition-all duration-200 font-medium"
             >
               Get In Touch
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section id="stats-section" className="py-16 px-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div className="group">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20">
+                <div className="text-5xl font-bold text-white mb-2 transition-transform group-hover:scale-110">
+                  {projectsAnalyzed}+
+                </div>
+                <div className="text-white/90 text-lg font-medium">Projects Analyzed</div>
+                <div className="text-white/70 text-sm mt-2">Data-driven insights delivered</div>
+              </div>
+            </div>
+            
+            <div className="group">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20">
+                <div className="text-5xl font-bold text-white mb-2 transition-transform group-hover:scale-110">
+                  {dataVisualized}K+
+                </div>
+                <div className="text-white/90 text-lg font-medium">Data Points Visualized</div>
+                <div className="text-white/70 text-sm mt-2">Charts and dashboards created</div>
+              </div>
+            </div>
+            
+            <div className="group">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20">
+                <div className="text-5xl font-bold text-white mb-2 transition-transform group-hover:scale-110">
+                  {insightsDelivered}+
+                </div>
+                <div className="text-white/90 text-lg font-medium">Insights Delivered</div>
+                <div className="text-white/70 text-sm mt-2">Actionable recommendations</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -189,33 +280,33 @@ export default function Home() {
           
           <div className="grid md:grid-cols-3 gap-8">
             {/* Project 1: What You Know */}
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden group">
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-3 transition-all duration-300 overflow-hidden group cursor-pointer">
               {/* Project Image */}
               <div className="relative h-48 bg-gradient-to-br from-blue-500 to-indigo-600 overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-white text-6xl">📊</div>
+                <div className="absolute inset-0 flex items-center justify-center transition-transform group-hover:scale-110 duration-300">
+                  <div className="text-white text-6xl group-hover:rotate-12 transition-transform duration-300">📊</div>
                 </div>
                 <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity"></div>
               </div>
               
               <div className="p-6">
-                <div className="text-blue-600 dark:text-blue-400 text-sm font-semibold mb-2">WHAT I KNOW</div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                <div className="text-blue-600 dark:text-blue-400 text-sm font-semibold mb-2 group-hover:animate-pulse">WHAT I KNOW</div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   Sales Dashboard Analysis
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">
                   Interactive dashboard analyzing sales trends, customer behavior, and revenue patterns using Python and Tableau.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm">Python</span>
-                  <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm">Tableau</span>
-                  <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm">Excel</span>
+                  <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm hover:scale-110 transition-transform cursor-pointer">Python</span>
+                  <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm hover:scale-110 transition-transform cursor-pointer">Tableau</span>
+                  <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm hover:scale-110 transition-transform cursor-pointer">Excel</span>
                 </div>
                 <div className="flex gap-3">
-                  <a href="#" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">
+                  <a href="#" className="text-blue-600 dark:text-blue-400 hover:underline font-medium hover:translate-x-1 transition-transform inline-block">
                     View Demo →
                   </a>
-                  <a href="#" className="text-gray-600 dark:text-gray-400 hover:underline font-medium">
+                  <a href="#" className="text-gray-600 dark:text-gray-400 hover:underline font-medium hover:translate-x-1 transition-transform inline-block">
                     GitHub →
                   </a>
                 </div>
@@ -223,30 +314,30 @@ export default function Home() {
             </div>
 
             {/* Project 2: What You Learned */}
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-gray-800 dark:to-gray-700 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden group">
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-gray-800 dark:to-gray-700 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-3 transition-all duration-300 overflow-hidden group cursor-pointer">
               {/* Project Image */}
               <div className="relative h-48 bg-gradient-to-br from-purple-500 to-pink-600 overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-white text-6xl">🎯</div>
+                <div className="absolute inset-0 flex items-center justify-center transition-transform group-hover:scale-110 duration-300">
+                  <div className="text-white text-6xl group-hover:rotate-12 transition-transform duration-300">🎯</div>
                 </div>
                 <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity"></div>
               </div>
               
               <div className="p-6">
-                <div className="text-purple-600 dark:text-purple-400 text-sm font-semibold mb-2">WHAT I LEARNED</div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                <div className="text-purple-600 dark:text-purple-400 text-sm font-semibold mb-2 group-hover:animate-pulse">WHAT I LEARNED</div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
                   Customer Segmentation
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">
                   Applied clustering algorithms and SQL queries to segment customers, improving targeted marketing strategies.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded-full text-sm">SQL</span>
-                  <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded-full text-sm">Pandas</span>
-                  <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded-full text-sm">Scikit-learn</span>
+                  <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded-full text-sm hover:scale-110 transition-transform cursor-pointer">SQL</span>
+                  <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded-full text-sm hover:scale-110 transition-transform cursor-pointer">Pandas</span>
+                  <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded-full text-sm hover:scale-110 transition-transform cursor-pointer">Scikit-learn</span>
                 </div>
                 <div className="flex gap-3">
-                  <a href="#" className="text-purple-600 dark:text-purple-400 hover:underline font-medium">
+                  <a href="#" className="text-purple-600 dark:text-purple-400 hover:underline font-medium hover:translate-x-1 transition-transform inline-block">
                     View Demo →
                   </a>
                   <a href="#" className="text-gray-600 dark:text-gray-400 hover:underline font-medium">
@@ -257,30 +348,30 @@ export default function Home() {
             </div>
 
             {/* Project 3: What You're Aspiring To */}
-            <div className="bg-gradient-to-br from-green-50 to-teal-50 dark:from-gray-800 dark:to-gray-700 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden group">
+            <div className="bg-gradient-to-br from-green-50 to-teal-50 dark:from-gray-800 dark:to-gray-700 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-3 transition-all duration-300 overflow-hidden group cursor-pointer">
               {/* Project Image */}
               <div className="relative h-48 bg-gradient-to-br from-green-500 to-teal-600 overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-white text-6xl">🚀</div>
+                <div className="absolute inset-0 flex items-center justify-center transition-transform group-hover:scale-110 duration-300">
+                  <div className="text-white text-6xl group-hover:rotate-12 transition-transform duration-300">🚀</div>
                 </div>
                 <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity"></div>
               </div>
               
               <div className="p-6">
-                <div className="text-green-600 dark:text-green-400 text-sm font-semibold mb-2">ASPIRING TO BUILD</div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                <div className="text-green-600 dark:text-green-400 text-sm font-semibold mb-2 group-hover:animate-pulse">ASPIRING TO BUILD</div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">
                   Predictive Analytics Platform
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">
                   Building a real-time predictive model for business forecasting using machine learning and cloud technologies.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-sm">Machine Learning</span>
-                  <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-sm">Power BI</span>
-                  <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-sm">Azure</span>
+                  <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-sm hover:scale-110 transition-transform cursor-pointer">Machine Learning</span>
+                  <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-sm hover:scale-110 transition-transform cursor-pointer">Power BI</span>
+                  <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-sm hover:scale-110 transition-transform cursor-pointer">Azure</span>
                 </div>
                 <div className="flex gap-3">
-                  <a href="#" className="text-green-600 dark:text-green-400 hover:underline font-medium">
+                  <a href="#" className="text-green-600 dark:text-green-400 hover:underline font-medium hover:translate-x-1 transition-transform inline-block">
                     View Demo →
                   </a>
                   <a href="#" className="text-gray-600 dark:text-gray-400 hover:underline font-medium">
