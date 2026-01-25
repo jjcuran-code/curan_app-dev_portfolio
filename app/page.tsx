@@ -2,7 +2,63 @@ import Image from 'next/image';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
+      {/* Data Analytics Background Pattern */}
+      <div className="fixed inset-0 pointer-events-none opacity-30 dark:opacity-20">
+        {/* Grid Pattern */}
+        <div className="absolute inset-0" style={{
+          backgroundImage: `
+            linear-gradient(to right, rgba(100, 116, 139, 0.1) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(100, 116, 139, 0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px'
+        }}></div>
+        
+        {/* Data Visualization Elements */}
+        <svg className="absolute top-20 right-10 w-96 h-96 opacity-20" viewBox="0 0 200 200">
+          {/* Bar Chart */}
+          <rect x="20" y="140" width="20" height="40" fill="#3b82f6" rx="2"/>
+          <rect x="50" y="110" width="20" height="70" fill="#3b82f6" rx="2"/>
+          <rect x="80" y="130" width="20" height="50" fill="#3b82f6" rx="2"/>
+          <rect x="110" y="90" width="20" height="90" fill="#3b82f6" rx="2"/>
+          <rect x="140" y="120" width="20" height="60" fill="#3b82f6" rx="2"/>
+        </svg>
+        
+        {/* Line Chart */}
+        <svg className="absolute bottom-20 left-10 w-96 h-96 opacity-20" viewBox="0 0 200 200">
+          <polyline points="20,150 50,120 80,140 110,80 140,100 170,60" 
+            fill="none" stroke="#8b5cf6" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+          <circle cx="20" cy="150" r="4" fill="#8b5cf6"/>
+          <circle cx="50" cy="120" r="4" fill="#8b5cf6"/>
+          <circle cx="80" cy="140" r="4" fill="#8b5cf6"/>
+          <circle cx="110" cy="80" r="4" fill="#8b5cf6"/>
+          <circle cx="140" cy="100" r="4" fill="#8b5cf6"/>
+          <circle cx="170" cy="60" r="4" fill="#8b5cf6"/>
+        </svg>
+        
+        {/* Pie Chart */}
+        <svg className="absolute top-1/2 left-1/4 w-64 h-64 opacity-15" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="40" fill="none" stroke="#10b981" strokeWidth="20" 
+            strokeDasharray="75 25" transform="rotate(-90 50 50)"/>
+          <circle cx="50" cy="50" r="40" fill="none" stroke="#f59e0b" strokeWidth="20" 
+            strokeDasharray="25 75" strokeDashoffset="-75" transform="rotate(-90 50 50)"/>
+        </svg>
+        
+        {/* Scatter Plot */}
+        <svg className="absolute top-1/3 right-1/4 w-80 h-80 opacity-15" viewBox="0 0 200 200">
+          <circle cx="30" cy="150" r="3" fill="#ec4899"/>
+          <circle cx="60" cy="120" r="3" fill="#ec4899"/>
+          <circle cx="45" cy="140" r="3" fill="#ec4899"/>
+          <circle cx="90" cy="100" r="3" fill="#ec4899"/>
+          <circle cx="75" cy="130" r="3" fill="#ec4899"/>
+          <circle cx="120" cy="80" r="3" fill="#ec4899"/>
+          <circle cx="105" cy="110" r="3" fill="#ec4899"/>
+          <circle cx="150" cy="60" r="3" fill="#ec4899"/>
+          <circle cx="135" cy="90" r="3" fill="#ec4899"/>
+          <circle cx="165" cy="70" r="3" fill="#ec4899"/>
+        </svg>
+      </div>
+      
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm shadow-sm z-50">
         <div className="max-w-6xl mx-auto px-6 py-4">
