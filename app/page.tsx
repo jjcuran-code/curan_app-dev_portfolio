@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-gray-900 dark:to-gray-800">
@@ -18,6 +20,24 @@ export default function Home() {
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
+          {/* Profile Image */}
+          <div className="flex justify-center mb-8">
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
+              <div className="relative bg-white dark:bg-gray-900 rounded-full p-2">
+                <div className="relative w-48 h-48 overflow-hidden rounded-full">
+                  <Image
+                    src="/profile.jpg"
+                    alt="Jerech Jan Curan"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
           <h2 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
             I am a{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
