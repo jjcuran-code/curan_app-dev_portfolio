@@ -7,7 +7,7 @@ export default function Home() {
       <nav className="fixed top-0 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm shadow-sm z-50">
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Jerech Jan Curan</h1>
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Curan | Data Analyst</h1>
             <div className="flex gap-6">
               <a href="#projects" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Projects</a>
               <a href="#learning" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Learning</a>
@@ -41,12 +41,11 @@ export default function Home() {
           <h2 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
             I am a{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-              Developer
+              Data Analyst
             </span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-            {/* TODO: Replace with your hero statement */}
-            Passionate about creating modern, accessible, and user-friendly applications
+            Transforming raw data into actionable insights through statistical analysis, visualization, and storytelling
           </p>
           <div className="flex gap-4 justify-center">
             <a 
@@ -80,15 +79,15 @@ export default function Home() {
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 p-6 rounded-xl shadow-lg hover:shadow-xl transition">
               <div className="text-blue-600 dark:text-blue-400 text-sm font-semibold mb-2">WHAT I KNOW</div>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
-                Project Title 1
+                Sales Dashboard Analysis
               </h3>
               <p className="text-gray-600 dark:text-gray-300 mb-4">
-                Brief description of this project showcasing your current expertise and skills.
+                Interactive dashboard analyzing sales trends, customer behavior, and revenue patterns using Python and Tableau.
               </p>
               <div className="flex flex-wrap gap-2 mb-4">
-                <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm">React</span>
-                <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm">TypeScript</span>
-                <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm">Tailwind</span>
+                <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm">Python</span>
+                <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm">Tableau</span>
+                <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm">Excel</span>
               </div>
               <div className="flex gap-3">
                 <a href="#" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">
@@ -104,15 +103,15 @@ export default function Home() {
             <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-gray-800 dark:to-gray-700 p-6 rounded-xl shadow-lg hover:shadow-xl transition">
               <div className="text-purple-600 dark:text-purple-400 text-sm font-semibold mb-2">WHAT I LEARNED</div>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
-                Project Title 2
+                Customer Segmentation
               </h3>
               <p className="text-gray-600 dark:text-gray-300 mb-4">
-                Brief description highlighting the learning journey and challenges overcome in this project.
+                Applied clustering algorithms and SQL queries to segment customers, improving targeted marketing strategies.
               </p>
               <div className="flex flex-wrap gap-2 mb-4">
-                <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded-full text-sm">Next.js</span>
-                <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded-full text-sm">API</span>
-                <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded-full text-sm">Database</span>
+                <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded-full text-sm">SQL</span>
+                <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded-full text-sm">Pandas</span>
+                <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded-full text-sm">Scikit-learn</span>
               </div>
               <div className="flex gap-3">
                 <a href="#" className="text-purple-600 dark:text-purple-400 hover:underline font-medium">
@@ -128,15 +127,15 @@ export default function Home() {
             <div className="bg-gradient-to-br from-green-50 to-teal-50 dark:from-gray-800 dark:to-gray-700 p-6 rounded-xl shadow-lg hover:shadow-xl transition">
               <div className="text-green-600 dark:text-green-400 text-sm font-semibold mb-2">ASPIRING TO BUILD</div>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
-                Project Title 3
+                Predictive Analytics Platform
               </h3>
               <p className="text-gray-600 dark:text-gray-300 mb-4">
-                Brief description of this ambitious project showing your future goals and innovative thinking.
+                Building a real-time predictive model for business forecasting using machine learning and cloud technologies.
               </p>
               <div className="flex flex-wrap gap-2 mb-4">
-                <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-sm">AI/ML</span>
-                <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-sm">Cloud</span>
-                <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-sm">Advanced</span>
+                <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-sm">Machine Learning</span>
+                <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-sm">Power BI</span>
+                <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-sm">Azure</span>
               </div>
               <div className="flex gap-3">
                 <a href="#" className="text-green-600 dark:text-green-400 hover:underline font-medium">
@@ -158,7 +157,7 @@ export default function Home() {
             Currently Learning
           </h2>
           <p className="text-center text-gray-600 dark:text-gray-400 mb-12">
-            Continuous growth is key to staying relevant in tech
+            Expanding my data analytics toolkit with new technologies and methodologies
           </p>
           
           <div className="grid md:grid-cols-2 gap-6">
@@ -169,10 +168,10 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                    Technology/Skill 1
+                    Advanced SQL & Database Design
                   </h3>
                   <p className="text-gray-600 dark:text-gray-400">
-                    Currently diving deep into [specific technology] to enhance my skills in [area]
+                    Mastering complex queries, optimization techniques, and database architecture for large-scale data analysis
                   </p>
                 </div>
               </div>
@@ -185,10 +184,10 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                    Technology/Skill 2
+                    Power BI & Data Visualization
                   </h3>
                   <p className="text-gray-600 dark:text-gray-400">
-                    Exploring [framework/tool] to build more efficient and scalable applications
+                    Creating interactive dashboards and reports that tell compelling data stories for business stakeholders
                   </p>
                 </div>
               </div>
@@ -201,10 +200,10 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                    Technology/Skill 3
+                    Statistical Analysis & R
                   </h3>
                   <p className="text-gray-600 dark:text-gray-400">
-                    Learning [concept/pattern] to improve code quality and maintainability
+                    Applying statistical methods and R programming for hypothesis testing and predictive modeling
                   </p>
                 </div>
               </div>
@@ -217,10 +216,10 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                    Technology/Skill 4
+                    Machine Learning Fundamentals
                   </h3>
                   <p className="text-gray-600 dark:text-gray-400">
-                    Mastering [specialty area] to deliver better user experiences
+                    Exploring ML algorithms and techniques to enhance predictive analytics capabilities
                   </p>
                 </div>
               </div>
@@ -236,7 +235,7 @@ export default function Home() {
             Let's Connect
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">
-            Interested in working together? Reach out via email or connect on social media
+            Looking for data-driven insights? Let's discuss how I can help transform your data into actionable strategies
           </p>
           <div className="flex gap-6 justify-center flex-wrap">
             <a 
@@ -267,7 +266,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="py-8 px-6 bg-gray-900 text-center text-gray-400">
-        <p>© 2026 Your Name. Built with Next.js & Tailwind CSS</p>
+        <p>© 2026 Jerech Jan Curan. Built with Next.js & Tailwind CSS</p>
       </footer>
     </div>
   );
