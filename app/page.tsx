@@ -98,6 +98,12 @@ export default function Home() {
           backgroundSize: '40px 40px'
         }}></div>
         
+        {/* Floating Geometric Shapes */}
+        <div className="absolute top-1/4 left-1/3 w-16 h-16 border-4 border-blue-400/30 rotate-45 animate-spin-slow"></div>
+        <div className="absolute top-2/3 right-1/4 w-20 h-20 border-4 border-purple-400/30 rounded-full animate-pulse"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-12 h-12 bg-gradient-to-br from-pink-400/20 to-orange-400/20 rotate-12 animate-bounce-slow"></div>
+        <div className="absolute top-1/2 right-1/3 w-24 h-24 border-4 border-green-400/30 rounded-lg rotate-12 animate-spin-reverse"></div>
+        
         {/* Data Visualization Elements */}
         <svg className="absolute top-20 right-10 w-96 h-96 opacity-30 dark:opacity-20" viewBox="0 0 200 200">
           {/* Bar Chart */}
@@ -237,6 +243,11 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="group">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20">
+                <div className="flex items-center justify-center gap-3 mb-3">
+                  <svg className="w-16 h-16 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                </div>
                 <div className="text-5xl font-bold text-white mb-2 transition-transform group-hover:scale-110">
                   {projectsAnalyzed}+
                 </div>
@@ -247,6 +258,11 @@ export default function Home() {
             
             <div className="group">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20">
+                <div className="flex items-center justify-center gap-3 mb-3">
+                  <svg className="w-16 h-16 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+                  </svg>
+                </div>
                 <div className="text-5xl font-bold text-white mb-2 transition-transform group-hover:scale-110">
                   {dataVisualized}K+
                 </div>
@@ -257,6 +273,11 @@ export default function Home() {
             
             <div className="group">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20">
+                <div className="flex items-center justify-center gap-3 mb-3">
+                  <svg className="w-16 h-16 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                </div>
                 <div className="text-5xl font-bold text-white mb-2 transition-transform group-hover:scale-110">
                   {insightsDelivered}+
                 </div>
@@ -395,66 +416,90 @@ export default function Home() {
           </p>
           
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border-l-4 border-blue-500">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg">
-                  <span className="text-2xl">📚</span>
+                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+                  </svg>
                 </div>
-                <div>
+                <div className="flex-1">
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
                     Advanced SQL & Database Design
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400">
+                  <p className="text-gray-600 dark:text-gray-400 mb-3">
                     Mastering complex queries, optimization techniques, and database architecture for large-scale data analysis
                   </p>
+                  <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                    <div className="bg-gradient-to-r from-blue-400 to-blue-600 h-2.5 rounded-full" style={{width: '75%'}}></div>
+                  </div>
+                  <span className="text-sm text-blue-600 dark:text-blue-400 font-medium mt-1 inline-block">75% Complete</span>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border-l-4 border-purple-500">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg">
-                  <span className="text-2xl">🚀</span>
+                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
                 </div>
-                <div>
+                <div className="flex-1">
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
                     Power BI & Data Visualization
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400">
+                  <p className="text-gray-600 dark:text-gray-400 mb-3">
                     Creating interactive dashboards and reports that tell compelling data stories for business stakeholders
                   </p>
+                  <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                    <div className="bg-gradient-to-r from-purple-400 to-purple-600 h-2.5 rounded-full" style={{width: '60%'}}></div>
+                  </div>
+                  <span className="text-sm text-purple-600 dark:text-purple-400 font-medium mt-1 inline-block">60% Complete</span>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border-l-4 border-green-500">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg">
-                  <span className="text-2xl">💡</span>
+                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  </svg>
                 </div>
-                <div>
+                <div className="flex-1">
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
                     Statistical Analysis & R
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400">
+                  <p className="text-gray-600 dark:text-gray-400 mb-3">
                     Applying statistical methods and R programming for hypothesis testing and predictive modeling
                   </p>
+                  <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                    <div className="bg-gradient-to-r from-green-400 to-green-600 h-2.5 rounded-full" style={{width: '50%'}}></div>
+                  </div>
+                  <span className="text-sm text-green-600 dark:text-green-400 font-medium mt-1 inline-block">50% Complete</span>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border-l-4 border-orange-500">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg">
-                  <span className="text-2xl">🎯</span>
+                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
                 </div>
-                <div>
+                <div className="flex-1">
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
                     Machine Learning Fundamentals
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400">
+                  <p className="text-gray-600 dark:text-gray-400 mb-3">
                     Exploring ML algorithms and techniques to enhance predictive analytics capabilities
                   </p>
+                  <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                    <div className="bg-gradient-to-r from-orange-400 to-orange-600 h-2.5 rounded-full" style={{width: '40%'}}></div>
+                  </div>
+                  <span className="text-sm text-orange-600 dark:text-orange-400 font-medium mt-1 inline-block">40% Complete</span>
                 </div>
               </div>
             </div>
