@@ -18,19 +18,26 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="pt-32 pb-20 px-6 relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
+          <div className="absolute top-40 right-10 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
+          <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+        </div>
+        
+        <div className="max-w-4xl mx-auto text-center relative z-10">
           {/* Profile Image */}
           <div className="flex justify-center mb-8">
             <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-300 animate-pulse"></div>
               <div className="relative bg-white dark:bg-gray-900 rounded-full p-2">
-                <div className="relative w-48 h-48 overflow-hidden rounded-full">
+                <div className="relative w-48 h-48 overflow-hidden rounded-full ring-4 ring-white dark:ring-gray-800 shadow-2xl">
                   <Image
                     src="/profile.jpg"
                     alt="Jerech Jan Curan"
                     fill
-                    className="object-cover"
+                    className="object-cover hover:scale-110 transition-transform duration-300"
                     priority
                   />
                 </div>
@@ -38,13 +45,13 @@ export default function Home() {
             </div>
           </div>
 
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 animate-fade-in-up">
             I am a{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 animate-gradient">
               Data Analyst
             </span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto animate-fade-in-up animation-delay-200">
             Transforming raw data into actionable insights through statistical analysis, visualization, and storytelling
           </p>
           <div className="flex gap-4 justify-center">
@@ -76,74 +83,104 @@ export default function Home() {
           
           <div className="grid md:grid-cols-3 gap-8">
             {/* Project 1: What You Know */}
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 p-6 rounded-xl shadow-lg hover:shadow-xl transition">
-              <div className="text-blue-600 dark:text-blue-400 text-sm font-semibold mb-2">WHAT I KNOW</div>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
-                Sales Dashboard Analysis
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">
-                Interactive dashboard analyzing sales trends, customer behavior, and revenue patterns using Python and Tableau.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm">Python</span>
-                <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm">Tableau</span>
-                <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm">Excel</span>
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden group">
+              {/* Project Image */}
+              <div className="relative h-48 bg-gradient-to-br from-blue-500 to-indigo-600 overflow-hidden">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-white text-6xl">📊</div>
+                </div>
+                <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity"></div>
               </div>
-              <div className="flex gap-3">
-                <a href="#" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">
-                  View Demo →
-                </a>
-                <a href="#" className="text-gray-600 dark:text-gray-400 hover:underline font-medium">
-                  GitHub →
-                </a>
+              
+              <div className="p-6">
+                <div className="text-blue-600 dark:text-blue-400 text-sm font-semibold mb-2">WHAT I KNOW</div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                  Sales Dashboard Analysis
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  Interactive dashboard analyzing sales trends, customer behavior, and revenue patterns using Python and Tableau.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm">Python</span>
+                  <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm">Tableau</span>
+                  <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm">Excel</span>
+                </div>
+                <div className="flex gap-3">
+                  <a href="#" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">
+                    View Demo →
+                  </a>
+                  <a href="#" className="text-gray-600 dark:text-gray-400 hover:underline font-medium">
+                    GitHub →
+                  </a>
+                </div>
               </div>
             </div>
 
             {/* Project 2: What You Learned */}
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-gray-800 dark:to-gray-700 p-6 rounded-xl shadow-lg hover:shadow-xl transition">
-              <div className="text-purple-600 dark:text-purple-400 text-sm font-semibold mb-2">WHAT I LEARNED</div>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
-                Customer Segmentation
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">
-                Applied clustering algorithms and SQL queries to segment customers, improving targeted marketing strategies.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded-full text-sm">SQL</span>
-                <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded-full text-sm">Pandas</span>
-                <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded-full text-sm">Scikit-learn</span>
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-gray-800 dark:to-gray-700 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden group">
+              {/* Project Image */}
+              <div className="relative h-48 bg-gradient-to-br from-purple-500 to-pink-600 overflow-hidden">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-white text-6xl">🎯</div>
+                </div>
+                <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity"></div>
               </div>
-              <div className="flex gap-3">
-                <a href="#" className="text-purple-600 dark:text-purple-400 hover:underline font-medium">
-                  View Demo →
-                </a>
-                <a href="#" className="text-gray-600 dark:text-gray-400 hover:underline font-medium">
-                  GitHub →
-                </a>
+              
+              <div className="p-6">
+                <div className="text-purple-600 dark:text-purple-400 text-sm font-semibold mb-2">WHAT I LEARNED</div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                  Customer Segmentation
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  Applied clustering algorithms and SQL queries to segment customers, improving targeted marketing strategies.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded-full text-sm">SQL</span>
+                  <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded-full text-sm">Pandas</span>
+                  <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded-full text-sm">Scikit-learn</span>
+                </div>
+                <div className="flex gap-3">
+                  <a href="#" className="text-purple-600 dark:text-purple-400 hover:underline font-medium">
+                    View Demo →
+                  </a>
+                  <a href="#" className="text-gray-600 dark:text-gray-400 hover:underline font-medium">
+                    GitHub →
+                  </a>
+                </div>
               </div>
             </div>
 
             {/* Project 3: What You're Aspiring To */}
-            <div className="bg-gradient-to-br from-green-50 to-teal-50 dark:from-gray-800 dark:to-gray-700 p-6 rounded-xl shadow-lg hover:shadow-xl transition">
-              <div className="text-green-600 dark:text-green-400 text-sm font-semibold mb-2">ASPIRING TO BUILD</div>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
-                Predictive Analytics Platform
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">
-                Building a real-time predictive model for business forecasting using machine learning and cloud technologies.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-sm">Machine Learning</span>
-                <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-sm">Power BI</span>
-                <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-sm">Azure</span>
+            <div className="bg-gradient-to-br from-green-50 to-teal-50 dark:from-gray-800 dark:to-gray-700 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden group">
+              {/* Project Image */}
+              <div className="relative h-48 bg-gradient-to-br from-green-500 to-teal-600 overflow-hidden">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-white text-6xl">🚀</div>
+                </div>
+                <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity"></div>
               </div>
-              <div className="flex gap-3">
-                <a href="#" className="text-green-600 dark:text-green-400 hover:underline font-medium">
-                  View Demo →
-                </a>
-                <a href="#" className="text-gray-600 dark:text-gray-400 hover:underline font-medium">
-                  GitHub →
-                </a>
+              
+              <div className="p-6">
+                <div className="text-green-600 dark:text-green-400 text-sm font-semibold mb-2">ASPIRING TO BUILD</div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                  Predictive Analytics Platform
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  Building a real-time predictive model for business forecasting using machine learning and cloud technologies.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-sm">Machine Learning</span>
+                  <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-sm">Power BI</span>
+                  <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-sm">Azure</span>
+                </div>
+                <div className="flex gap-3">
+                  <a href="#" className="text-green-600 dark:text-green-400 hover:underline font-medium">
+                    View Demo →
+                  </a>
+                  <a href="#" className="text-gray-600 dark:text-gray-400 hover:underline font-medium">
+                    GitHub →
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -161,9 +198,9 @@ export default function Home() {
           </p>
           
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg">
                   <span className="text-2xl">📚</span>
                 </div>
                 <div>
@@ -177,9 +214,9 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg">
                   <span className="text-2xl">🚀</span>
                 </div>
                 <div>
@@ -193,9 +230,9 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg">
                   <span className="text-2xl">💡</span>
                 </div>
                 <div>
@@ -209,9 +246,9 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-orange-100 dark:bg-orange-900 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg">
                   <span className="text-2xl">🎯</span>
                 </div>
                 <div>
