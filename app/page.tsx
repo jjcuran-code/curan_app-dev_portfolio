@@ -220,7 +220,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6 relative overflow-hidden">
+      <section className="pt-32 pb-20 px-6 relative overflow-hidden min-h-screen flex items-center">
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
@@ -228,47 +228,52 @@ export default function Home() {
           <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
         </div>
         
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          {/* Profile Image */}
-          <div className="flex justify-center mb-8">
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-300 animate-pulse"></div>
-              <div className="relative bg-white dark:bg-gray-900 rounded-full p-2">
-                <div className="relative w-48 h-48 overflow-hidden rounded-full ring-4 ring-white dark:ring-gray-800 shadow-2xl">
-                  <Image
-                    src="/profile.jpg"
-                    alt="Jerech Jan Curan"
-                    fill
-                    className="object-cover hover:scale-110 transition-transform duration-300"
-                    priority
-                  />
+        <div className="max-w-7xl mx-auto relative z-10 w-full">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Left Side - Text Content */}
+            <div className="text-left">
+              <h2 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 animate-fade-in-up">
+                I am a{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 animate-gradient">
+                  Data Analyst
+                </span>
+              </h2>
+              <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-xl animate-fade-in-up animation-delay-200">
+                Transforming raw data into actionable insights through statistical analysis, visualization, and storytelling
+              </p>
+              <div className="flex gap-4">
+                <a 
+                  href="#projects" 
+                  className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 hover:scale-105 active:scale-95 transition-all duration-200 font-medium shadow-lg hover:shadow-xl"
+                >
+                  View My Work
+                </a>
+                <a 
+                  href="#contact" 
+                  className="px-8 py-3 border-2 border-blue-600 text-blue-600 dark:text-blue-400 rounded-lg hover:bg-blue-50 dark:hover:bg-gray-800 hover:scale-105 active:scale-95 transition-all duration-200 font-medium"
+                >
+                  Get In Touch
+                </a>
+              </div>
+            </div>
+
+            {/* Right Side - Profile Image */}
+            <div className="flex justify-center md:justify-end">
+              <div className="relative group">
+                <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition duration-300 animate-pulse"></div>
+                <div className="relative bg-white dark:bg-gray-900 rounded-full p-3">
+                  <div className="relative w-72 h-72 md:w-96 md:h-96 overflow-hidden rounded-full ring-4 ring-white dark:ring-gray-800 shadow-2xl">
+                    <Image
+                      src="/profile.jpg"
+                      alt="Jerech Jan Curan"
+                      fill
+                      className="object-cover hover:scale-110 transition-transform duration-300"
+                      priority
+                    />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 animate-fade-in-up">
-            I am a{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 animate-gradient">
-              Data Analyst
-            </span>
-          </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto animate-fade-in-up animation-delay-200">
-            Transforming raw data into actionable insights through statistical analysis, visualization, and storytelling
-          </p>
-          <div className="flex gap-4 justify-center">
-            <a 
-              href="#projects" 
-              className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 hover:scale-105 active:scale-95 transition-all duration-200 font-medium shadow-lg hover:shadow-xl"
-            >
-              View My Work
-            </a>
-            <a 
-              href="#contact" 
-              className="px-8 py-3 border-2 border-blue-600 text-blue-600 dark:text-blue-400 rounded-lg hover:bg-blue-50 dark:hover:bg-gray-800 hover:scale-105 active:scale-95 transition-all duration-200 font-medium"
-            >
-              Get In Touch
-            </a>
           </div>
         </div>
       </section>
