@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, FormEvent } from 'react';
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
@@ -9,6 +9,43 @@ export default function Home() {
   const [projectsAnalyzed, setProjectsAnalyzed] = useState(0);
   const [dataVisualized, setDataVisualized] = useState(0);
   const [insightsDelivered, setInsightsDelivered] = useState(0);
+  
+  // Contact form state
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [formStatus, setFormStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    setFormStatus("loading");
+
+    try {
+      const response = await fetch("https://formspree.io/f/xvzawpzq", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _replyto: formData.email,
+        }),
+      });
+
+      if (response.ok) {
+        setFormStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setFormStatus("error");
+      }
+    } catch {
+      setFormStatus("error");
+    }
+  };
 
   useEffect(() => {
     // Check for saved theme preference or default to light mode
@@ -509,36 +546,114 @@ export default function Home() {
 
       {/* Contact Section */}
       <section id="contact" className="py-20 px-6 bg-white dark:bg-gray-900">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4 text-center">
             Let's Connect
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">
-            Looking for data-driven insights? Let's discuss how I can help transform your data into actionable strategies
+          <p className="text-xl text-gray-600 dark:text-gray-400 mb-8 text-center">
+            Looking for data-driven insights? Fill out the form below and I'll get back to you!
           </p>
-          <div className="flex gap-6 justify-center flex-wrap">
-            <a 
-              href="mailto:jererchjancuran2@gmail.com" 
-              className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 active:scale-95 transition-all duration-200 font-medium"
-            >
-              Email Me
-            </a>
-            <a 
-              href="https://github.com/jjcuran-code" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 active:scale-95 transition-all duration-200 font-medium"
-            >
-              GitHub
-            </a>
-            <a 
-              href="https://www.linkedin.com/in/jerech-jan-curan-0049a23a7/" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 active:scale-95 transition-all duration-200 font-medium"
-            >
-              LinkedIn
-            </a>
+          
+          {/* Contact Form */}
+          <div className="max-w-xl mx-auto mb-12">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                  placeholder="John Doe"
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Your Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                  placeholder="john@example.com"
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  rows={5}
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition resize-none"
+                  placeholder="Tell me about your project or idea..."
+                />
+              </div>
+              
+              <button
+                type="submit"
+                disabled={formStatus === "loading"}
+                className="w-full px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 active:scale-95 transition-all duration-200 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {formStatus === "loading" ? "Sending..." : "Send Message"}
+              </button>
+              
+              {formStatus === "success" && (
+                <div className="p-4 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-lg text-center">
+                  ✅ Message sent successfully! I'll get back to you soon.
+                </div>
+              )}
+              
+              {formStatus === "error" && (
+                <div className="p-4 bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 rounded-lg text-center">
+                  ❌ Something went wrong. Please try again or email me directly.
+                </div>
+              )}
+            </form>
+          </div>
+
+          {/* Social Links */}
+          <div className="text-center">
+            <p className="text-gray-600 dark:text-gray-400 mb-4">Or connect with me on:</p>
+            <div className="flex gap-6 justify-center flex-wrap">
+              <a 
+                href="mailto:jerechjancuran2@gmail.com" 
+                className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 active:scale-95 transition-all duration-200 font-medium"
+              >
+                Email Me
+              </a>
+              <a 
+                href="https://github.com/jjcuran-code" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 active:scale-95 transition-all duration-200 font-medium"
+              >
+                GitHub
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/jerech-jan-curan-0049a23a7/" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 active:scale-95 transition-all duration-200 font-medium"
+              >
+                LinkedIn
+              </a>
+            </div>
           </div>
         </div>
       </section>
